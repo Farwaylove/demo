@@ -4,9 +4,9 @@
 /**************class CxLibPlugin ****************/
 CxLibPlugin::CxLibPlugin(QObject *parent):QLibrary(parent)
 {
-    createDemoFun    = nullptr;
-    releaseDemoFun   = nullptr;
-    getPluginNameFun = nullptr;
+    createDemoFun    = Q_NULLPTR;
+    releaseDemoFun   = Q_NULLPTR;
+    getPluginNameFun = Q_NULLPTR;
 }
 
 CxLibPlugin::~CxLibPlugin()
@@ -44,7 +44,7 @@ CxIDemo*  CxLibPlugin::CreateDemo(QWidget *parent)
     {
         return createDemoFun(parent);
     }
-    return nullptr;
+    return Q_NULLPTR;
 }
 void      CxLibPlugin::ReleaseDemo(CxIDemo* demo)
 {
@@ -102,9 +102,9 @@ CxLibPlugin *CxPluginManager::Load(const QString &pluginFile)
     CxLibPlugin *plugin = new CxLibPlugin(this);
     if (plugin->Init(pluginFile) == false)
     {
-        plugin->setParent(nullptr);
+        plugin->setParent(Q_NULLPTR);
         delete plugin;
-        plugin = nullptr;
+        plugin = Q_NULLPTR;
     }
     else
     {
@@ -123,7 +123,7 @@ bool      CxPluginManager::Unload(const QString &pluginName)
         CxLibPlugin *plugin = iter.value();
         if (plugin)
         {
-            plugin->setParent(nullptr);
+            plugin->setParent(Q_NULLPTR);
             delete plugin;
         }
         map.erase(iter);
@@ -140,7 +140,7 @@ CxLibPlugin *CxPluginManager::find(const QString &pluginName)
     {
         return iter.value();
     }
-    return nullptr;
+    return Q_NULLPTR;
 }
 
 //CxPluginManager* GetPluginManager()

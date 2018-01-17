@@ -26,13 +26,13 @@ INCLUDEPATH += ./
 INCLUDEPATH += ../../
 
 SOURCES += \
-    XClockItem.cpp \
-    XMiuiClock.cpp
+    CxClockItem.cpp \
+    CxMiuiClock.cpp
 
 
 HEADERS += \
-    XClockItem.h \
-    XMiuiClock.h
+    CxClockItem.h \
+    CxMiuiClock.h
 
 unix {
     target.path = /usr/lib

@@ -9,16 +9,15 @@ class CxMainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit CxMainWindow(QWidget *parent = nullptr);
+    explicit CxMainWindow(QWidget *parent = Q_NULLPTR);
 
 signals:
-
 public slots:
     void            TryloadPlugin(bool checked);
     void            DisplayDemo(QAction *action);
     void            UnloadPlugin(QAction *action);
 private:
-    void            Remove(QMenu *menu, const QString action);
+    void            Remove(QMenu *menu, const QString& action);
 private:
     QMenu          *unloadMenu;
     QMenu          *listMenu;

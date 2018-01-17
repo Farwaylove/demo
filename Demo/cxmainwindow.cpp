@@ -77,13 +77,15 @@ void            CxMainWindow::UnloadPlugin(QAction *action)
     }
 }
 
-void            CxMainWindow::Remove(QMenu *menu, const QString action)
+void            CxMainWindow::Remove(QMenu *menu, const QString& action)
 {
     QList<QAction*> list = menu->findChildren<QAction*>();
     foreach (QAction* qaction, list) {
         if (qaction->text() == action)
         {
-            listMenu->removeAction(qaction);
+            menu->removeAction(qaction);
         }
     }
 }
+
+
